@@ -56,6 +56,7 @@ class Settings(BaseSettings):
     LLM_MODEL: str = "claude-3-5-sonnet-20241022"
     ANTHROPIC_API_KEY: str = ""
     GEMINI_API_KEY: str = ""
+    HF_API_KEY: str = ""
     EMBEDDING_PROVIDER: str = ""
     EMBEDDING_MODEL: str = ""
     EMBEDDING_DIM: int = 1536
