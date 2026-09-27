@@ -49,25 +49,33 @@ export type ResultStatus = 'draft' | 'published'
 
 export const AI_ASSISTANT_LABEL = 'AI suggestion — you decide'
 
-export const EXAM_STATUS_COLORS: Record<ExamStatus, string> = {
-  draft: '#9ca3af',
-  evaluation: '#3b82f6',
-  moderation: '#f59e0b',
-  completed: '#22c55e',
+interface StatusStyle {
+  bg: string
+  text: string
+  border: string
 }
 
-export const MARKING_STATUS_COLORS: Record<MarkingStatus, string> = {
-  pending: '#9ca3af',
-  marked: '#22c55e',
-  flagged: '#ef4444',
-  moderated: '#3b82f6',
+// Reuses the same Tailwind palette already defined in components/ui/Badge.tsx
+// for visual consistency across the app.
+export const EXAM_STATUS_COLORS: Record<ExamStatus, StatusStyle> = {
+  draft: { bg: 'bg-slate-100', text: 'text-slate-700', border: 'border-slate-200' },
+  evaluation: { bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200' },
+  moderation: { bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-200' },
+  completed: { bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200' },
+}
+
+export const MARKING_STATUS_COLORS: Record<MarkingStatus, StatusStyle> = {
+  pending: { bg: 'bg-slate-100', text: 'text-slate-700', border: 'border-slate-200' },
+  marked: { bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200' },
+  flagged: { bg: 'bg-rose-50', text: 'text-rose-700', border: 'border-rose-200' },
+  moderated: { bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200' },
 }
 
 // Per frontend-plan.md §7: high = red, medium = amber, low = grey.
-export const ANOMALY_SEVERITY_COLORS: Record<AnomalySeverity, string> = {
-  low: '#9ca3af',
-  medium: '#f59e0b',
-  high: '#ef4444',
+export const ANOMALY_SEVERITY_COLORS: Record<AnomalySeverity, StatusStyle> = {
+  low: { bg: 'bg-slate-100', text: 'text-slate-700', border: 'border-slate-200' },
+  medium: { bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-200' },
+  high: { bg: 'bg-rose-50', text: 'text-rose-700', border: 'border-rose-200' },
 }
 
 // Neutral wording — flags are a reason to look, never an accusation.
